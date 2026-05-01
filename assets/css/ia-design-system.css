@@ -1,0 +1,538 @@
+/* =====================================================
+   IA ADVOCACIA EMPRESARIAL — Design System
+   Palette: Midnight · Champagne Gold · Carrara White · Graphite Gray
+   Typography: Montserrat Bold (Google Fonts)
+   ===================================================== */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --ia-midnight:       #1B2A4A;
+  --ia-midnight-light: #243560;
+  --ia-midnight-dark:  #111D35;
+  --ia-gold:           #C3A84C;
+  --ia-gold-light:     #D4BE6E;
+  --ia-carrara:        #F5F3EF;
+  --ia-carrara-pure:   #FFFFFF;
+  --ia-graphite:       #444A4A;
+  --ia-graphite-light: #6B7070;
+  --ia-text:           #1A1A1A;
+  --ia-text-light:     #5C5D5F;
+
+  --font-heading: 'Montserrat', 'Montserrat Black', sans-serif;
+  --font-body:    'Montserrat', 'Montserrat Regular', sans-serif;
+
+  --header-height: 80px;
+  --section-gap:   80px;
+  --radius:        6px;
+  --transition:    0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ---------- Global Reset & Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  font-weight: 500;
+  color: var(--ia-text);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  background: var(--ia-carrara-pure);
+}
+
+/* ---------- Typography Overrides ---------- */
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  color: var(--ia-midnight) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em;
+}
+
+h1, .elementor-size-xxl { font-size: clamp(2rem, 4vw, 3.2rem) !important; }
+h2, .elementor-size-xl  { font-size: clamp(1.6rem, 3vw, 2.4rem) !important; }
+h3, .elementor-size-default { font-size: clamp(1.3rem, 2.5vw, 2rem) !important; }
+h4 { font-size: clamp(1.1rem, 2vw, 1.5rem) !important; }
+
+p, .elementor-widget-text-editor,
+.entry-excerpt, .jet-testimonials__comment {
+  font-family: var(--font-body) !important;
+  font-weight: 400;
+  color: var(--ia-graphite) !important;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.8;
+}
+
+a {
+  font-family: var(--font-body) !important;
+  color: var(--ia-midnight);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--ia-gold) !important;
+}
+
+
+/* =====================================================
+   HEADER — Midnight Navy Bar (contrasts with marble)
+   ===================================================== */
+header.elementor-location-header,
+header .elementor-element-da13376,
+header .e-con.e-parent {
+  background: var(--ia-midnight) !important;
+  border-bottom: 2px solid var(--ia-gold) !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 2px 20px rgba(27,42,74,0.25);
+  min-height: var(--header-height);
+  padding: 0 40px !important;
+}
+
+/* Logo sizing */
+header .logo img,
+header .elementor-widget-image img {
+  max-height: 55px !important;
+  width: auto !important;
+  filter: brightness(0) invert(1); /* make logo white on dark bg */
+  transition: filter var(--transition);
+}
+
+/* Nav Links */
+header .elementor-nav-menu > li > a,
+header .elementor-nav-menu .elementor-item {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--ia-carrara-pure) !important;
+  padding: 8px 18px !important;
+  transition: color var(--transition), border-color var(--transition);
+  border-bottom: 2px solid transparent;
+}
+header .elementor-nav-menu > li > a:hover,
+header .elementor-nav-menu .elementor-item:hover,
+header .elementor-nav-menu .elementor-item-active {
+  color: var(--ia-gold) !important;
+  border-bottom-color: var(--ia-gold);
+}
+
+/* Dropdown/Sub-menu */
+header .sub-menu,
+header .elementor-nav-menu--dropdown {
+  background: var(--ia-midnight) !important;
+  border: 1px solid rgba(195,168,76,0.2);
+  border-top: 2px solid var(--ia-gold);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+header .sub-menu a,
+header .elementor-sub-item {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  padding: 10px 20px !important;
+}
+header .sub-menu a:hover,
+header .elementor-sub-item:hover {
+  color: var(--ia-gold) !important;
+  background: rgba(195,168,76,0.08) !important;
+}
+
+/* Mobile Menu Toggle (burger) */
+header .elementor-menu-toggle {
+  color: var(--ia-carrara-pure) !important;
+}
+header .elementor-menu-toggle svg {
+  fill: var(--ia-carrara-pure) !important;
+}
+
+/* Pointer-underline override */
+header .e--pointer-underline .elementor-item::after,
+header .e--pointer-underline .elementor-item::before {
+  background: var(--ia-gold) !important;
+}
+
+
+/* =====================================================
+   HERO / BANNER
+   ===================================================== */
+.elementor-element-c2afc41,
+[data-id="c2afc41"] {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Dark overlay for readability */
+.elementor-element-c2afc41::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,42,74,0.65) 0%, rgba(17,29,53,0.40) 100%);
+  z-index: 1;
+}
+.elementor-element-c2afc41 > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Heading */
+.elementor-element-c2afc41 h3,
+.elementor-element-c2afc41 h4,
+.elementor-element-c2afc41 .elementor-heading-title {
+  color: var(--ia-carrara-pure) !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  max-width: 700px;
+}
+
+
+/* =====================================================
+   BUTTONS — Premium Gold CTA
+   ===================================================== */
+.elementor-button,
+.elementor-button-link {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  background: var(--ia-gold) !important;
+  color: var(--ia-midnight) !important;
+  border: 2px solid var(--ia-gold) !important;
+  border-radius: var(--radius) !important;
+  padding: 14px 36px !important;
+  box-shadow: 0 4px 15px rgba(195,168,76,0.3) !important;
+  transition: all var(--transition) !important;
+}
+.elementor-button:hover,
+.elementor-button-link:hover,
+.elementor-button:focus {
+  background: transparent !important;
+  color: var(--ia-gold) !important;
+  border-color: var(--ia-gold) !important;
+  box-shadow: 0 6px 25px rgba(195,168,76,0.4) !important;
+  transform: translateY(-2px);
+}
+
+/* WhatsApp button specifically */
+.elementor-button .e-fab-whatsapp {
+  fill: currentColor !important;
+}
+
+
+/* =====================================================
+   SECTIONS — Scannable Layout
+   ===================================================== */
+
+/* Section alternating backgrounds */
+.e-con.e-parent:nth-of-type(even) {
+  background: var(--ia-carrara) !important;
+}
+
+/* Section spacing */
+.e-con.e-parent {
+  padding-top: var(--section-gap) !important;
+  padding-bottom: var(--section-gap) !important;
+}
+
+/* Section headings with gold accent bar */
+.elementor-widget-heading .elementor-heading-title {
+  position: relative;
+  padding-bottom: 16px;
+}
+
+/* Dividers → gold */
+.elementor-divider-separator {
+  border-color: var(--ia-gold) !important;
+  border-width: 2px !important;
+  width: 60px !important;
+}
+
+
+/* =====================================================
+   CARDS / AREAS DE ATUAÇÃO
+   ===================================================== */
+.jet-listing-grid__item,
+.jet-posts__item {
+  background: var(--ia-carrara-pure);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid rgba(68,74,74,0.08);
+}
+.jet-listing-grid__item:hover,
+.jet-posts__item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(27,42,74,0.12);
+}
+
+.jet-posts__inner-content {
+  padding: 20px 24px !important;
+}
+.jet-posts__inner-content h4,
+.entry-title a {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  color: var(--ia-midnight) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+  transition: color var(--transition);
+}
+.entry-title a:hover {
+  color: var(--ia-gold) !important;
+}
+.entry-excerpt {
+  color: var(--ia-graphite-light) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.65 !important;
+}
+
+/* Post thumbnail images */
+.post-thumbnail img,
+.post-thumbnail__img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.jet-posts__item:hover .post-thumbnail img {
+  transform: scale(1.05);
+}
+
+
+/* =====================================================
+   ADVOGADO SÓCIO FUNDADOR section
+   ===================================================== */
+.elementor-element-84ed14b {
+  background: var(--ia-carrara) !important;
+}
+.elementor-element-84ed14b img {
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(27,42,74,0.15);
+}
+
+
+/* =====================================================
+   TESTIMONIALS / DIFERENCIAIS
+   ===================================================== */
+.jet-testimonials__item-inner {
+  background: var(--ia-carrara-pure) !important;
+  border: 1px solid rgba(195,168,76,0.15);
+  border-radius: var(--radius);
+  padding: 32px 28px !important;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.jet-testimonials__item-inner:hover {
+  border-color: var(--ia-gold);
+  box-shadow: 0 8px 30px rgba(195,168,76,0.12);
+}
+.jet-testimonials__icon svg {
+  fill: var(--ia-gold) !important;
+  width: 36px !important;
+  height: 36px !important;
+}
+.jet-testimonials__name span {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  color: var(--ia-midnight) !important;
+}
+.jet-testimonials__comment {
+  color: var(--ia-graphite) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+}
+
+
+/* =====================================================
+   FOOTER — Dark Midnight
+   ===================================================== */
+footer.elementor-location-footer {
+  background: var(--ia-midnight-dark) !important;
+}
+footer .e-con.e-parent,
+footer [data-id="c6282c5"] {
+  background: var(--ia-midnight) !important;
+  border-top: 3px solid var(--ia-gold) !important;
+  padding: 60px 40px 40px !important;
+}
+footer [data-id="b1f8957"] {
+  background: var(--ia-midnight-dark) !important;
+  padding: 20px 40px !important;
+}
+
+/* Footer logo — bright on dark */
+footer .elementor-widget-image img {
+  max-height: 50px !important;
+  width: auto !important;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+/* Footer headings */
+footer h4,
+footer .elementor-heading-title {
+  color: var(--ia-carrara-pure) !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+/* Footer dividers */
+footer .elementor-divider-separator {
+  border-color: var(--ia-gold) !important;
+  opacity: 0.6;
+}
+
+/* Footer links */
+footer .elementor-icon-list-text,
+footer .elementor-icon-list-item a {
+  color: rgba(255,255,255,0.7) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  transition: color var(--transition) !important;
+}
+footer .elementor-icon-list-item a:hover,
+footer .elementor-icon-list-item a:hover .elementor-icon-list-text {
+  color: var(--ia-gold) !important;
+}
+
+/* Footer icons */
+footer .elementor-icon-list-icon svg,
+footer .e-font-icon-svg {
+  fill: var(--ia-gold) !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Social icons */
+footer .elementor-social-icon {
+  background: rgba(195,168,76,0.15) !important;
+  border: 1px solid rgba(195,168,76,0.3);
+  transition: all var(--transition);
+}
+footer .elementor-social-icon:hover {
+  background: var(--ia-gold) !important;
+  border-color: var(--ia-gold);
+}
+footer .elementor-social-icon svg {
+  fill: var(--ia-carrara-pure) !important;
+}
+
+/* Copyright bar */
+footer [data-id="b1f8957"] p,
+footer .elementor-element-a907f9a p {
+  color: rgba(255,255,255,0.45) !important;
+  font-size: 0.8rem !important;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+   ===================================================== */
+@media (max-width: 1024px) {
+  :root { --header-height: 70px; --section-gap: 50px; }
+
+  header.elementor-location-header,
+  header .elementor-element-da13376 {
+    padding: 0 20px !important;
+  }
+
+  /* Mobile dropdown background */
+  header .elementor-nav-menu--dropdown {
+    background: var(--ia-midnight) !important;
+  }
+  header .elementor-nav-menu--dropdown a {
+    color: rgba(255,255,255,0.85) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 12px 20px !important;
+  }
+  header .elementor-nav-menu--dropdown a:hover {
+    color: var(--ia-gold) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  :root { --section-gap: 40px; }
+
+  .e-con.e-parent {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Stack columns vertically with spacing */
+  .e-con.e-child {
+    padding: 10px 0 !important;
+  }
+  
+  footer .e-con.e-parent {
+    padding: 40px 20px 30px !important;
+  }
+}
+
+
+/* =====================================================
+   UTILITIES & POLISH
+   ===================================================== */
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.4s ease;
+}
+
+/* Selection color */
+::selection {
+  background: var(--ia-gold);
+  color: var(--ia-midnight);
+}
+
+/* Remove old green button hover from Elementor kit */
+.elementor-kit-5 .elementor-button:hover,
+.elementor-kit-5 .elementor-button:focus {
+  background-color: transparent !important;
+  color: var(--ia-gold) !important;
+  border-color: var(--ia-gold) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Fade-in animation for header */
+header .elementor-invisible {
+  visibility: visible !important;
+  animation: fadeIn 0.6s ease forwards !important;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ia-carrara);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ia-midnight);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ia-gold);
+}
